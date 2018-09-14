@@ -1,5 +1,7 @@
 ### Angular-RU community extension for Angular
 
+## External resources
+
 <details>
   <summary><b>ngx-component-outlet</b> – https://github.com/IndigoSoft/ngxd</summary>
 
