@@ -9,7 +9,7 @@
 </app-dynamic>
 ```
 
-- https://rucken.github.io/core
+- https://github.com/rucken/
   Core with Admin UI for web application maked on Angular 6+
   
 ```bash
