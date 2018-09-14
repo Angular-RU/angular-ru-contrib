@@ -12,7 +12,7 @@
 - https://rucken.github.io/core
   Core with Admin UI for web application maked on Angular 6+
   
-  ```bash
+```bash
 git clone https://github.com/rucken/core.git my-app
 cd my-app
 npm install
