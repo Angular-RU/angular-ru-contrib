@@ -1,5 +1,12 @@
 ### Angular-RU community extension for Angular
 
+
+[angular 6.x]
+
+<details open>
+  <summary><b>External</b> – extensions</summary>
+  <br>
+  
 - [ngx-component-outlet](https://github.com/IndigoSoft/ngxd)
   Best way to quickly use Dynamic Components with Angular
   
@@ -25,3 +32,6 @@ cd my-app
 npm install
 npm run start:prod
 ```
+
+</details>
+
