@@ -20,6 +20,8 @@ $ npm install --save ngx-component-outlet
 
 </details>
 
+
+
 <details>
   <summary><b>rucken</b> – https://github.com/rucken</summary>
   
@@ -37,20 +39,12 @@ $ npm install --save ngx-component-outlet
 </details>
 
 
+
 <details>
   <summary><b>angular-websocket-starter</b> – https://github.com/Angular-RU/angular-websocket-starter</summary>
     
    Angular service for WebSocket. Used Rx WebSocketSubject <br>
    ![](https://img.shields.io/github/stars/Angular-RU/angular-websocket-starter.svg?style=social&logo=github)
-   
-</details>
-
-
-<details>
-  <summary><b>ngx-component-outlet</b> – https://github.com/IndigoSoft/ngxd</summary>
-    
-   Best way to quickly use Dynamic Components with Angular <br>
-   ![](https://img.shields.io/github/stars/IndigoSoft/ngxd.svg?style=social&logo=github)
    
 </details>
 
