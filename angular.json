@@ -5,7 +5,7 @@
   "projects": {
     "angular-ru-contrib": {
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "projects/integration-e2e",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -14,16 +14,16 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/angular-ru-contrib",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "projects/integration-e2e/index.html",
+            "main": "projects/integration-e2e/main.ts",
+            "polyfills": "projects/integration-e2e/polyfills.ts",
+            "tsConfig": "projects/integration-e2e/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/integration-e2e/favicon.ico",
+              "projects/integration-e2e/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "projects/integration-e2e/styles.css"
             ],
             "scripts": []
           },
@@ -31,8 +31,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/integration-e2e/environments/environment.ts",
+                  "with": "projects/integration-e2e/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -67,17 +67,17 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "main": "projects/integration-e2e/test.ts",
+            "polyfills": "projects/integration-e2e/polyfills.ts",
+            "tsConfig": "projects/integration-e2e/tsconfig.spec.json",
+            "karmaConfig": "projects/integration-e2e/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "projects/integration-e2e/styles.css"
             ],
             "scripts": [],
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/integration-e2e/favicon.ico",
+              "projects/integration-e2e/assets"
             ]
           }
         },
@@ -85,8 +85,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "projects/integration-e2e/tsconfig.app.json",
+              "projects/integration-e2e/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
