@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+  - "10"
+
+dist: trusty
+sudo: false
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+addons:
+  chrome: stable
+
+script:
+  - yarn lint core
+  - yarn test core --watch=false
+  - yarn build core --prod=true
