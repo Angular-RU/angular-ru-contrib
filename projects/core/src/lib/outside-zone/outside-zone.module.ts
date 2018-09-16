@@ -5,7 +5,7 @@ export function RunOutsideAngular(): MethodDecorator {
         const originalValue: Function = descriptor.value;
 
         descriptor.value = function() {
-            const zone: NgZone = OutsideZone.injector!.get(NgZone);
+            const zone: NgZone = OutsideZoneModule.injector!.get(NgZone);
 
             if (typeof zone.runOutsideAngular === 'function') {
                 return zone.runOutsideAngular(originalValue.bind(this, ...arguments));
@@ -19,22 +19,22 @@ export function RunOutsideAngular(): MethodDecorator {
 }
 
 @NgModule()
-export class OutsideZone {
+export class OutsideZoneModule {
     /**
      * @property {Injector}
      */
     public static injector: Injector | null = null;
 
     constructor(injector: Injector) {
-        OutsideZone.injector = injector;
+        OutsideZoneModule.injector = injector;
     }
 
     /**
      * @returns a wrapper around NgModule
      */
-    public static forRoot(): ModuleWithProviders<OutsideZone> {
+    public static forRoot(): ModuleWithProviders<OutsideZoneModule> {
         return {
-            ngModule: OutsideZone
+            ngModule: OutsideZoneModule
         };
     }
 }
