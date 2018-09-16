@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone, Compiler, Injector, INJECTOR } from '@angular/core';
+import { Component, OnInit, NgZone, Compiler, Injector, INJECTOR, NgModule } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 
 import { OutsideZoneModule, RunOutsideAngular } from './outside-zone.module';
@@ -32,6 +32,13 @@ class MockComponent implements OnInit {
     }
 }
 
+@NgModule({
+    declarations: [
+        MockComponent
+    ]
+})
+class MockModule {}
+
 describe('OutsideZoneModule', () => {
     it('`OutsideZoneModule` should be defined', () => {
         expect(OutsideZoneModule).toBeTruthy();
@@ -53,6 +60,19 @@ describe('OutsideZoneModule', () => {
             ],
             declarations: [
                 MockComponent
+            ]
+        }).compileComponents();
+
+        const fixture: ComponentFixture<MockComponent> = TestBed.createComponent(MockComponent);
+        const isInAngularZone: boolean = fixture.componentInstance.runInterval();
+        expect(isInAngularZone).toBeFalsy();
+    });
+
+    it('decorator should be available to use in another module that is imported by the root module', () => {
+        TestBed.configureTestingModule({
+            imports: [
+                OutsideZoneModule.forRoot(),
+                MockModule
             ]
         }).compileComponents();
 
