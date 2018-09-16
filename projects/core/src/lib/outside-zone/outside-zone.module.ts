@@ -1,23 +1,5 @@
 import { NgModule, ModuleWithProviders, Injector, NgZone } from '@angular/core';
 
-export function RunOutsideAngular() {
-    return (_target: Object, _key: string | symbol, descriptor: TypedPropertyDescriptor<any>) => {
-        const originalValue = descriptor.value;
-
-        descriptor.value = function() {
-            const zone: NgZone = OutsideZoneModule.injector!.get(NgZone);
-
-            if (typeof zone.runOutsideAngular === 'function') {
-                return zone.runOutsideAngular(originalValue.bind(this, ...arguments));
-            }
-
-            return originalValue.apply(this, arguments);
-        };
-
-        return descriptor;
-    };
-}
-
 @NgModule()
 export class OutsideZoneModule {
     /**
@@ -39,4 +21,20 @@ export class OutsideZoneModule {
     }
 }
 
+export function RunOutsideAngular(): MethodDecorator {
+    return (_target: Object, _key: string | symbol, descriptor: TypedPropertyDescriptor<any>) => {
+        const originalValue = descriptor.value;
 
+        descriptor.value = function() {
+            const zone: NgZone = OutsideZoneModule.injector!.get<NgZone>(NgZone);
+
+            if (typeof zone.runOutsideAngular === 'function') {
+                return zone.runOutsideAngular(originalValue.bind(this, ...arguments));
+            }
+
+            return originalValue.apply(this, arguments);
+        };
+
+        return descriptor;
+    };
+}

@@ -4,7 +4,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { OutsideZoneModule, RunOutsideAngular } from './outside-zone.module';
 
 @Component({
-    selector: 'app-mock',
+    selector: 'core-mock',
     template: `
         <div class="div"></div>
         <button (click)="runInterval()">Click me</button>
@@ -25,7 +25,7 @@ class MockComponent implements OnInit {
     @RunOutsideAngular()
     public runInterval(): boolean {
         setInterval(() => {
-            this.node!.style.height = `${parseInt(this.node!.style.height) + 1}px`;
+            this.node!.style.height = `${parseInt(this.node!.style.height, 10) + 1}px`;
         }, 1000);
 
         return NgZone.isInAngularZone();
