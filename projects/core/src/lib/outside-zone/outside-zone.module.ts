@@ -1,8 +1,8 @@
 import { NgModule, ModuleWithProviders, Injector, NgZone } from '@angular/core';
 
-export function RunOutsideAngular(): MethodDecorator {
-    return (_target, _key, descriptor: PropertyDescriptor) => {
-        const originalValue: Function = descriptor.value;
+export function RunOutsideAngular() {
+    return (_target: Object, _key: string | symbol, descriptor: TypedPropertyDescriptor<any>) => {
+        const originalValue = descriptor.value;
 
         descriptor.value = function() {
             const zone: NgZone = OutsideZoneModule.injector!.get(NgZone);

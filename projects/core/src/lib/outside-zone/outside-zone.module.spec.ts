@@ -44,7 +44,7 @@ describe('OutsideZoneModule', () => {
         expect(OutsideZoneModule).toBeTruthy();
     });
 
-    it('static property `Injector` should be defined after instantiating', () => {
+    it('static property `injector` should be defined after instantiating', () => {
         const compiler: Compiler = TestBed.get(Compiler);
         const injector: Injector = TestBed.get(INJECTOR);
         compiler.compileModuleSync(OutsideZoneModule).create(injector);
